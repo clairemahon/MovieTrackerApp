@@ -44,36 +44,36 @@ class _MainScreenState extends State<MainScreen> {
     String title;
     switch (_selectedIndex) {
       case 0:
-        title = 'Recipes';
+        title = 'My Movies & TV Shows';
         break;
       case 1:
-        title = 'Bookmarks';
+        title = 'My Profile';
         break;
       case 2:
-        title = 'Groceries';
+        title = 'Search';
         break;
       default:
-        title = 'Recipes';
+        title = 'My Movies & TV Shows';
         break;
     }
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/icon_recipe.svg',
-                  color: _selectedIndex == 0 ? green : Colors.grey,
-                  semanticsLabel: 'Recipes'),
-              label: 'Recipes'),
-          BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/images/icon_bookmarks.svg',
-                  color: _selectedIndex == 1 ? green : Colors.grey,
-                  semanticsLabel: 'Bookmarks'),
-              label: 'Bookmarks'),
+                  color: _selectedIndex == 0 ? green : Colors.grey,
+                  semanticsLabel: 'My Movies'),
+              label: 'My Movies & TV Shows'),
           BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/images/icon_shopping_list.svg',
+                  color: _selectedIndex == 1 ? green : Colors.grey,
+                  semanticsLabel: 'My Profile'),
+              label: 'My Profile'),
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/images/icon_recipe.svg',
                   color: _selectedIndex == 2 ? green : Colors.grey,
-                  semanticsLabel: 'Groceries'),
-              label: 'Groceries'),
+                  semanticsLabel: 'Search'),
+              label: 'Search'),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: green,
