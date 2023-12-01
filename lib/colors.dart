@@ -1,4 +1,10 @@
 import 'dart:ui';
+import 'package:flutter/material.dart';
+
+class Colours {
+  static const scaffoldBgColor = Color(0xff5f6367);
+  static const ratingColor = Color(0xffF9A825);
+}
 
 const Color green = Color(0xff158442);
 const Color lightGrey = Color(0xff5f6367);

@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../widgets/custom_dropdown.dart';
-import '../colors.dart';
+import 'package:minichallenge3/colors.dart';
 
 // TODO: Add imports
 
@@ -64,7 +64,7 @@ class _MediaListState extends State<MediaList> {
     super.dispose();
   }
 
-  final FlutterSecureStorage _secureStorage = FlutterSecureStorage();
+  final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
 
   void savePreviousSearches() async {
     await _secureStorage.write(
@@ -136,7 +136,7 @@ class _MediaListState extends State<MediaList> {
               controller: searchTextController,
             )),
             PopupMenuButton<String>(
-                icon: const Icon(Icons.arrow_drop_down, color: lightGrey),
+                icon: const Icon(Icons.arrow_drop_down, color: Colors.grey),
                 onSelected: (String value) {
                   searchTextController.text = value;
                   startSearch(searchTextController.text);

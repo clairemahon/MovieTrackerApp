@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:minichallenge3/colors.dart';
 import '../screens/home_screen.dart';
 
 // dotenv.env['KEY'];
@@ -24,13 +25,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Recipes',
+      title: 'CineScreen: Movie App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.white,
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colours.scaffoldBgColor,
+        useMaterial3: true,
       ),
       home: const MainScreen(),
     );
