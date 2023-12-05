@@ -6,10 +6,13 @@ import 'dart:convert';
 
 class Api {
   static const _trendingMoviesUrl =
-      'https://api.themoviedb.org/3/trending/movie/day?language=en-US?api_key=${Constants.apiKey}';
+      'https://api.themoviedb.org/3/trending/movie/day?api_key=${Constants.apiKey}';
 
   static const _trendingTvShowsUrl =
-      'https://api.themoviedb.org/3/trending/tv/day?language=en-US?api_key=${Constants.apiKey}';
+      'https://api.themoviedb.org/3/trending/tv/day?api_key=${Constants.apiKey}';
+
+  static const _topRatedUrl =
+      'https://api.themoviedb.org/3/movie/top_rated?api_key=${Constants.apiKey}';
 
   Future<List<Movie>> getTrendingMovies() async {
     final response = await http.get(Uri.parse(_trendingMoviesUrl));

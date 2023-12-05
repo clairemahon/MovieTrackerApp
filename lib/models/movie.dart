@@ -4,7 +4,7 @@ class Movie {
   String originalTitle;
   String overview;
   String posterPath;
-  List<int> genreIds;
+  List<dynamic> genreIds;
   String releaseDate;
   double voteAverage;
   DateTime releaseDateFormatted;
