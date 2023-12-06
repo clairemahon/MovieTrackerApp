@@ -1,37 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:minichallenge3/colors.dart';
-import '../screens/home_screen.dart';
+import 'package:minichallenge3/models/profile_manager.dart';
+import 'package:minichallenge3/models/user_manager.dart';
+import 'package:provider/provider.dart';
 
-// dotenv.env['KEY'];
-// DotEnv.env['ACCESS_TOKEN'];
+import 'cinescreen_theme.dart';
+import 'models/app_state_manager.dart';
+import 'navigation/app_router.dart';
 
-// DotEnv dotenv = DotEnv() is automatically called during import.
-// If you want to load multiple dotenv files or name your dotenv object differently, you can do the following and import the singleton into the relavant files:
-// DotEnv another_dotenv = DotEnv()
-
-Future main() async {
-  // To load the .env file contents into dotenv.
-  // NOTE: fileName defaults to .env and can be omitted in this case.
-  // Ensure that the filename corresponds to the path in step 1 and 2.
-  await dotenv.load(fileName: ".env");
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appStateManager = AppStateManager();
+  await appStateManager.initializeApp();
+  runApp(Fooderlich(appStateManager: appStateManager));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Fooderlich extends StatefulWidget {
+  final AppStateManager appStateManager;
 
-  // This widget is the root of your application.
+  const Fooderlich({super.key, required this.appStateManager});
+
+  @override
+  FooderlichState createState() => FooderlichState();
+}
+
+class FooderlichState extends State<Fooderlich> {
+  late final _userManager = UserManager();
+  late final _profileManager = ProfileManager();
+  late final _appRouter = AppRouter(
+    widget.appStateManager,
+    _profileManager,
+    _userManager,
+  );
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CineScreen: Movie App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colours.scaffoldBgColor,
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => _userManager,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => _profileManager,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => widget.appStateManager,
+        ),
+      ],
+      child: Consumer<UserManager>(
+        builder: (context, userManager, child) {
+          ThemeData theme;
+          if (userManager.darkMode) {
+            theme = CineScreenTheme.dark();
+          } else {
+            theme = CineScreenTheme.light();
+          }
+
+          final router = _appRouter.router;
+          return MaterialApp.router(
+            theme: theme,
+            title: 'CineScreen',
+            routeInformationParser: router.routeInformationParser,
+            routeInformationProvider: router.routeInformationProvider,
+            routerDelegate: router.routerDelegate,
+          );
+        },
       ),
-      home: const MainScreen(),
     );
   }
 }

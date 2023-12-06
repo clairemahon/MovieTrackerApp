@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:minichallenge3/models/actor.dart';
 import 'package:minichallenge3/models/genre.dart';
+import 'package:minichallenge3/models/search_data.dart';
+import 'package:minichallenge3/models/tvshow.dart';
 
 class Api {
   static const _trendingMoviesUrl =
@@ -22,6 +24,13 @@ class Api {
   static const _castListUrl =
       'https://api.themoviedb.org/3/movie/550/credits?api_key=${Constants.apiKey}';
 
+  Future<SearchData> getExploreData() async {
+    final todayMovies = await getTrendingMovies();
+    final todayTvShows = await getTrendingTVShows();
+
+    return SearchData(todayMovies, todayTvShows);
+  }
+
   Future<List<Movie>> getTrendingMovies() async {
     final response = await http.get(Uri.parse(_trendingMoviesUrl));
     if (response.statusCode == 200) {
@@ -30,6 +39,27 @@ class Api {
       return decodedData.map((movie) => Movie.fromJson(movie)).toList();
     } else {
       throw Exception('Failed to load Trending movies!');
+    }
+  }
+
+  Future<List<Movie>> getFavoriteMovies() async {
+    final response = await http.get(Uri.parse(_trendingMoviesUrl));
+    if (response.statusCode == 200) {
+      final decodedData = json.decode(response.body)['results'] as List;
+      return decodedData.map((movie) => Movie.fromJson(movie)).toList();
+    } else {
+      throw Exception('Failed to load Favorite movies!');
+    }
+  }
+
+  Future<List<TvShow>> getTrendingTVShows() async {
+    final response = await http.get(Uri.parse(_trendingTvShowsUrl));
+    if (response.statusCode == 200) {
+      final decodedData = json.decode(response.body)['results'] as List;
+      print(decodedData);
+      return decodedData.map((tvshow) => TvShow.fromJson(tvshow)).toList();
+    } else {
+      throw Exception('Failed to load Trending TV!');
     }
   }
 
