@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:minichallenge3/screens/details_screen.dart';
 import '../constants.dart';
 
 class TrendingSlider extends StatelessWidget {
@@ -16,7 +17,7 @@ class TrendingSlider extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: CarouselSlider.builder(
-        itemCount: 10,
+        itemCount: snapshot.data!.length,
         options: CarouselOptions(
           height: 300,
           autoPlay: true,
@@ -27,16 +28,28 @@ class TrendingSlider extends StatelessWidget {
               Curves.easeInOut, // can play around with this and duration
           autoPlayAnimationDuration: const Duration(seconds: 1),
         ),
-        itemBuilder: (context, itemIndex, PageViewIndex) {
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: SizedBox(
-                width: 300,
-                height: 200,
-                child: Image.network(
-                    filterQuality: FilterQuality.high,
-                    fit: BoxFit.cover,
-                    '${Constants.imagePath}${snapshot.data['results'][itemIndex]['poster_path']}}')),
+        itemBuilder: (context, itemIndex, pageViewIndex) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(
+                    movie: snapshot.data[itemIndex],
+                  ),
+                ),
+              ); // potentially should be a cupertino page route
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: SizedBox(
+                  width: 300,
+                  height: 200,
+                  child: Image.network(
+                      filterQuality: FilterQuality.high,
+                      fit: BoxFit.cover,
+                      '${Constants.imagePath}${snapshot.data[itemIndex].posterPath}')),
+            ),
           );
         },
       ),

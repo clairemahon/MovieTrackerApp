@@ -25,11 +25,15 @@ class _MainScreenState extends State<MainScreen> {
   // TODO: Add index key
 
   late Future<List<Movie>> trendingMovies;
+  late Future<List<Movie>> topRatedMovies;
+  late Future<List<Movie>> upcomingMovies;
 
   @override
   void initState() {
     super.initState();
     trendingMovies = Api().getTrendingMovies();
+    topRatedMovies = Api().getTopRatedMovies();
+    upcomingMovies = Api().getUpcomingMovies();
     pageList.add(const MediaList());
     pageList.add(const MyMediaList());
     pageList.add(const WatchList());
@@ -68,19 +72,16 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/favorite.svg',
-                  color: _selectedIndex == 0 ? Colors.green : Colors.grey,
-                  semanticsLabel: 'My Movies'),
+              icon: Icon(Icons.trending_up_outlined,
+                  color: _selectedIndex == 0 ? Colors.green : Colors.grey),
               label: 'Trending'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/favorite.svg',
-                  color: _selectedIndex == 1 ? Colors.green : Colors.grey,
-                  semanticsLabel: 'My Profile'),
+              icon: Icon(Icons.person_outline,
+                  color: _selectedIndex == 1 ? Colors.green : Colors.grey),
               label: 'My Profile'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/favorite.svg',
-                  color: _selectedIndex == 2 ? Colors.green : Colors.grey,
-                  semanticsLabel: 'Search'),
+              icon: Icon(Icons.search_outlined,
+                  color: _selectedIndex == 2 ? Colors.green : Colors.grey),
               label: 'Search'),
         ],
         currentIndex: _selectedIndex,
@@ -137,11 +138,43 @@ class _MainScreenState extends State<MainScreen> {
               Text('Top Rated Movies',
                   style: GoogleFonts.aBeeZee(fontSize: 25)),
               const SizedBox(height: 20),
-              const MoviesSlider(),
+              SizedBox(
+                  child: FutureBuilder(
+                future: topRatedMovies,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text(snapshot.error.toString()),
+                    );
+                  } else if (snapshot.hasData) {
+                    return MoviesSlider(
+                      snapshot: snapshot,
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
+              )),
               const SizedBox(height: 20),
               Text('Upcoming Movies', style: GoogleFonts.aBeeZee(fontSize: 25)),
               const SizedBox(height: 20),
-              const MoviesSlider(),
+              SizedBox(
+                  child: FutureBuilder(
+                future: upcomingMovies,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text(snapshot.error.toString()),
+                    );
+                  } else if (snapshot.hasData) {
+                    return MoviesSlider(
+                      snapshot: snapshot,
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
+              )),
             ],
           ),
         ),

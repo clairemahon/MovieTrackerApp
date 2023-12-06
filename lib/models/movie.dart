@@ -32,10 +32,10 @@ class Movie {
       backDropPath: json['backdrop_path'],
       originalTitle: json['original_title'],
       overview: json['overview'],
-      posterPath: json['poster_path'],
+      posterPath: json['poster_path'].toString(),
       genreIds: json['genre_ids'],
-      releaseDate: json['release_date'],
-      voteAverage: json['vote_average'],
+      releaseDate: json['release_date'].toString(),
+      voteAverage: json['vote_average'].toDouble(),
       releaseDateFormatted: DateTime.parse(json['release_date']),
       adult: json['adult'],
     );
