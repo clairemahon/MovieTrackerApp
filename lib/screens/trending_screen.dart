@@ -5,6 +5,10 @@ import 'package:minichallenge3/models/movie.dart';
 import 'package:minichallenge3/widgets/movies_slider.dart';
 import 'package:minichallenge3/widgets/trending_slider.dart';
 
+// TrendingScreen is the screen that displays the trending movies,
+// top rated movies, and upcoming movies
+// It serves as the main page a user sees when they open the app
+
 class TrendingScreen extends StatelessWidget {
   final apiService = Api();
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// CustomDropdown is a StatelessWidget that displays a dropdown menu
 class CustomDropdownMediaItem<T> extends PopupMenuEntry<T> {
   const CustomDropdownMediaItem(
       {Key? key, required this.value, required this.text, this.callback})

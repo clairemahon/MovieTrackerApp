@@ -11,12 +11,14 @@ import 'package:minichallenge3/widgets/movies_slider.dart';
 import 'package:minichallenge3/widgets/trending_slider.dart';
 import '../media/media_list.dart';
 import '../mymedia/my_media_list.dart';
-import '../watchlist/watch_list.dart';
+// import '../watchlist/watch_list.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:minichallenge3/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// MainScreen is the main page of the app - trending is the automatic display
+// MainScreen is the home page of the app - trending is the automatic display,
+// it also includes navigation to the search screen and the profile screen
+
 class MainScreen extends StatefulWidget {
   const MainScreen({
     super.key,
@@ -49,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
     upcomingMovies = Api().getUpcomingMovies();
     pageList.add(const MediaList());
     pageList.add(const MyMediaList());
-    pageList.add(const WatchList());
+    // pageList.add(const WatchList());
   }
 
   void saveCurrentIndex() async {

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:minichallenge3/screens/details_screen.dart';
 import '../constants.dart';
 
+// TrendingSlider is a StatelessWidget that displays a
+// horizontal list of trending movies
 class TrendingSlider extends StatelessWidget {
   const TrendingSlider({
     super.key,

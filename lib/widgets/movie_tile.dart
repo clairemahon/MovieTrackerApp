@@ -4,6 +4,7 @@ import 'package:minichallenge3/constants.dart';
 import 'package:minichallenge3/models/movie.dart';
 import 'package:minichallenge3/screens/details_screen.dart';
 
+// MovieTile is a StatelessWidget that displays a movie poster
 class MovieTile extends StatelessWidget {
   final Movie item;
   final Function(bool?)? onComplete;

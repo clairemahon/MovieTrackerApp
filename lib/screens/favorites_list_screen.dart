@@ -5,6 +5,8 @@ import 'package:minichallenge3/screens/details_screen.dart';
 import 'package:minichallenge3/widgets/favorites_slider.dart';
 import 'package:minichallenge3/widgets/movie_tile.dart';
 
+// FavoritesListScreen is the screen that displays the user's
+// favorites list from their profile preferences
 class FavoritesListScreen extends StatelessWidget {
   final ProfileManager manager;
 

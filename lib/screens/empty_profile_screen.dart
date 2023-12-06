@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:minichallenge3/models/app_state_manager.dart';
 
+// EmptyProfileScreen is a StatelessWidget that is displayed when the user
+// has not saved any favorites /preferred movies to their profile yet
 class EmptyProfileScreen extends StatelessWidget {
   const EmptyProfileScreen({super.key});
 

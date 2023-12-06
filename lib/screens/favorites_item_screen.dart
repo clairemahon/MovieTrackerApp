@@ -5,6 +5,9 @@ import 'package:minichallenge3/models/movie.dart';
 import 'package:minichallenge3/widgets/movie_tile.dart';
 import 'package:uuid/uuid.dart';
 
+// FavoritesItemScreen is the screen that allows the user to create or update a movie item
+// adding it to their own personal favorites list on their profile page
+
 class FavoritesItemScreen extends StatefulWidget {
   final Function(Movie) onCreate;
   final Function(Movie) onUpdate;

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../api/api.dart';
 
+// SearchScreen is the screen that displays the search bar and the results
+// it allows users to search for Movies and TV shows
 class SearchScreen extends StatelessWidget {
   final apiService = Api();
 

@@ -4,6 +4,8 @@ import 'package:minichallenge3/screens/empty_profile_screen.dart';
 import 'package:minichallenge3/screens/favorites_list_screen.dart';
 import 'package:provider/provider.dart';
 
+// ProfileScreen is the screen that displays the user's profile preferences,
+// showing them either the option to add new favorites or showing ones they've already added
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 

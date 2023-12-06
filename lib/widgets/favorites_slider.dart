@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:minichallenge3/constants.dart';
 import 'package:minichallenge3/screens/details_screen.dart';
 
+// FavoritesSlider is a StatelessWidget that displays a
+// horizontal list of movies favorited by the user
+// It is most notably implemented on the ProfileScreen
 class FavoritesSlider extends StatelessWidget {
   const FavoritesSlider({
     super.key,

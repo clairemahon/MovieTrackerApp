@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:minichallenge3/constants.dart';
 import 'package:minichallenge3/screens/details_screen.dart';
 
+// MoviesSlider is a StatelessWidget that displays a horizontal list of movies
 class MoviesSlider extends StatelessWidget {
   const MoviesSlider({
     super.key,

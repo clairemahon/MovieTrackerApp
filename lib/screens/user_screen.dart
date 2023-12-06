@@ -3,12 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:minichallenge3/models/profile_manager.dart';
 import 'package:minichallenge3/models/user_manager.dart';
 import 'package:provider/provider.dart';
-
 import '../widgets/circle_image.dart';
 import '../models/user.dart';
-
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:io';
+
+// UserScreen is the screen that displays the user's profile preferences,
+// such as their username, country, language, and subscriptions
+// as well as light and dark mode
 
 class UserScreen extends StatefulWidget {
   final User user;

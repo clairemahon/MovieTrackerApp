@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// CircleImage is a StatelessWidget that displays a circular image
+
 class CircleImage extends StatelessWidget {
   const CircleImage({
     super.key,

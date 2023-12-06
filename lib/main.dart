@@ -2,28 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:minichallenge3/models/profile_manager.dart';
 import 'package:minichallenge3/models/user_manager.dart';
 import 'package:provider/provider.dart';
-
 import 'cinescreen_theme.dart';
 import 'models/app_state_manager.dart';
 import 'navigation/app_router.dart';
 
+// Main entry point for the app
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appStateManager = AppStateManager();
   await appStateManager.initializeApp();
-  runApp(Fooderlich(appStateManager: appStateManager));
+  runApp(CineScreen(appStateManager: appStateManager));
 }
 
-class Fooderlich extends StatefulWidget {
+// CineScreen is the root widget of the app
+class CineScreen extends StatefulWidget {
   final AppStateManager appStateManager;
 
-  const Fooderlich({super.key, required this.appStateManager});
+  const CineScreen({super.key, required this.appStateManager});
 
   @override
   FooderlichState createState() => FooderlichState();
 }
 
-class FooderlichState extends State<Fooderlich> {
+class FooderlichState extends State<CineScreen> {
   late final _userManager = UserManager();
   late final _profileManager = ProfileManager();
   late final _appRouter = AppRouter(

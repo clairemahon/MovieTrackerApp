@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// General purpose media card to represent a movie or tv show
 Widget mediaCard(String image, String label) {
   return Card(
     elevation: 4.0,
@@ -38,7 +39,7 @@ Widget mediaCard(String image, String label) {
         const Padding(
           padding: EdgeInsets.only(left: 8.0),
           child: Text(
-            '320CAL',
+            'Filler Text',
             style: TextStyle(
               fontWeight: FontWeight.normal,
               fontSize: 11,
