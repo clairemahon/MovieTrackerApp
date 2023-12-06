@@ -15,6 +15,8 @@ A Flutter-based mobile application that allows users to explore trending movies,
     Get detailed information about a specific movie.
 
 # Screenshots
+<img width="350" alt="Screenshot 2023-12-07 at 12 25 13 AM" src="https://github.com/clairemahon/MovieTrackerApp/assets/94750731/3db01b08-a285-448e-83da-658154cadbe4">
+<img width="351" alt="Screenshot 2023-12-07 at 12 25 37 AM" src="https://github.com/clairemahon/MovieTrackerApp/assets/94750731/a356c576-832e-4f1f-b907-5839319a362b">
 
 
 # Getting Started
