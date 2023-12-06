@@ -2,6 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:minichallenge3/models/app_cache.dart';
 
+// CineScreenTab is an enum that represents the tabs in the app
+// It is used to keep track of the current tab the user is on
+// These tabs represent the main pages of the app - trending movies,
+// my profile and preferences, and search to find new movies
 class CineScreenTab {
   static const int trending = 0;
   static const int myprofile = 1;
@@ -25,6 +29,11 @@ class AppStateManager extends ChangeNotifier {
 
   void goToTab(index) {
     _selectedTab = index;
+    notifyListeners();
+  }
+
+  void goToTrending() {
+    _selectedTab = CineScreenTab.trending;
     notifyListeners();
   }
 

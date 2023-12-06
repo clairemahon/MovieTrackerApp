@@ -1,3 +1,8 @@
+// Class to store actor details such as
+// their id, gender, name, profile path, known for department and popularity
+// and factory method to convert json API
+// information about the Actor to dart Actor object
+
 class Actor {
   final String id;
   final String gender;

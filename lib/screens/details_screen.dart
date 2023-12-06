@@ -4,6 +4,7 @@ import 'package:minichallenge3/constants.dart';
 import 'package:minichallenge3/models/movie.dart';
 import 'package:minichallenge3/widgets/back_button.dart';
 
+// DetailsScreen is the screen that displays the details of a movie
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key, required this.movie});
 

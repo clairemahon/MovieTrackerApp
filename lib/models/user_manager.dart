@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minichallenge3/models/user.dart';
 
+// UserManager is a ChangeNotifier that holds the state of the user settings profile
 class UserManager extends ChangeNotifier {
   User get getUser => User(
         userName: 'movielover2',

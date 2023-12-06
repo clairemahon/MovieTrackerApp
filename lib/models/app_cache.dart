@@ -1,5 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+// AppCache is a class that serves to cache data locally
+// and to check if the user has completed onboarding, or is logged in
+// in the case that we were to add app authentication
+
 class AppCache {
   static const kUser = 'user';
   static const kOnboarding = 'onboarding';

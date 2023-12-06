@@ -8,6 +8,7 @@ import 'package:minichallenge3/models/genre.dart';
 import 'package:minichallenge3/models/search_data.dart';
 import 'package:minichallenge3/models/tvshow.dart';
 
+// Main API/Service class that serves to fetch data from the TMBD API
 class Api {
   static const _trendingMoviesUrl =
       'https://api.themoviedb.org/3/trending/movie/day?api_key=${Constants.apiKey}';

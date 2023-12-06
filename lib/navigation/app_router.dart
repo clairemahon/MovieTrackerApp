@@ -8,6 +8,11 @@ import 'package:minichallenge3/screens/user_screen.dart';
 import 'package:minichallenge3/screens/search_screen.dart';
 import '../models/app_state_manager.dart';
 
+// AppRouter is a class that handles the routing of the app
+// It uses the GoRouter package to handle routing
+// It is used to navigate between the main pages of the app - trending movies,
+// my profile and preferences, and search to find new movies
+
 class AppRouter {
   final AppStateManager appStateManager;
   final ProfileManager profileManager;

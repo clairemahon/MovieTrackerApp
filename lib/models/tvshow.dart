@@ -1,3 +1,4 @@
+// Purpose: TvShow model class represents a single TV show
 class TvShow {
   String title;
   String backDropPath;

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+// MyMediaList is a StatefulWidget that displays the user's saved movies
+
 class MyMediaList extends StatefulWidget {
   const MyMediaList({Key? key}) : super(key: key);
 

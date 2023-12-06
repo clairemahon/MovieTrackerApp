@@ -1,3 +1,4 @@
+// User represents a user settings profile
 class User {
   final String userName;
   final String firstName;

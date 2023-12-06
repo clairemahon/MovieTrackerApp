@@ -1,21 +1,8 @@
+// CastList class represents a List of Actors involved in a given movie
+import 'package:minichallenge3/models/actor.dart';
+
 class CastList {
-  final List<Cast> cast;
+  final List<Actor> cast;
 
   CastList(this.cast);
-}
-
-class Cast {
-  final String name;
-  final String profilePath;
-  final String character;
-
-  Cast(
-      {required this.name, required this.profilePath, required this.character});
-
-  factory Cast.fromJson(dynamic json) {
-    return Cast(
-        name: json['name'],
-        profilePath: json['profile_path'],
-        character: json['character']);
-  }
 }

@@ -16,6 +16,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:minichallenge3/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// MainScreen is the main page of the app - trending is the automatic display
 class MainScreen extends StatefulWidget {
   const MainScreen({
     super.key,

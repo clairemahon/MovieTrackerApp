@@ -1,3 +1,5 @@
+// Genre represents the movie/tv show genre being called from the API
+
 class Genre {
   int id;
   String name;

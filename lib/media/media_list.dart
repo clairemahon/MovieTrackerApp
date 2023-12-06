@@ -5,8 +5,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../widgets/custom_dropdown.dart';
 import 'package:minichallenge3/colors.dart';
 
-// TODO: Add imports
-
+// MediaList is a StatefulWidget that holds the state of the search
+// and the list of movies/tv shows
 class MediaList extends StatefulWidget {
   const MediaList({Key? key}) : super(key: key);
 
@@ -27,12 +27,12 @@ class _MediaListState extends State<MediaList> {
   bool loading = false;
   bool inErrorState = false;
   List<String> previousSearches = <String>[];
-  // TODO: Add _currentRecipes1
+  // TODO: Add _currentMediaList
 
   @override
   void initState() {
     super.initState();
-    // TODO: Call loadMedia()
+    // call LoadMedia()
 
     getPreviousSearches();
     searchTextController = TextEditingController(text: '');
@@ -56,7 +56,7 @@ class _MediaListState extends State<MediaList> {
     });
   }
 
-  // TODO: Add loadRecipes
+  // TODO: Add loadMedia
 
   @override
   void dispose() {

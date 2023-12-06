@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'movie.dart';
 
+// ProfileManager is a ChangeNotifier that holds the state of
+// the user's preferences and saved movies
 class ProfileManager extends ChangeNotifier {
   final _savedMovies = <Movie>[];
   List<Movie> get savedMovies => List.unmodifiable(_savedMovies);
